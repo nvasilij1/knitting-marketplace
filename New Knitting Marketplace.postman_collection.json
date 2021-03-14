@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "08e19c5b-4e1d-4baa-9880-a988aa84a0f0",
+		"name": "New Knitting Marketplace",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "All category non blocked",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{localmarket}}/api/get_category?XDEBUG_SESSION=XDEBUG_ECLIPSE",
+					"protocol": "http",
+					"host": [
+						"{{localmarket}}"
+					],
+					"path": [
+						"api",
+						"get_category"
+					],
+					"query": [
+						{
+							"key": "XDEBUG_SESSION",
+							"value": "XDEBUG_ECLIPSE"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "One category_id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{localmarket}}/api/category_id/4?XDEBUG_SESSION=XDEBUG_ECLIPSE",
+					"protocol": "http",
+					"host": [
+						"{{localmarket}}"
+					],
+					"path": [
+						"api",
+						"category_id",
+						"4"
+					],
+					"query": [
+						{
+							"key": "XDEBUG_SESSION",
+							"value": "XDEBUG_ECLIPSE"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert category",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "vk_oid",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "vk_name",
+							"value": "Тест",
+							"type": "text"
+						},
+						{
+							"key": "vk_surname",
+							"value": "Фамилия",
+							"type": "text"
+						},
+						{
+							"key": "encoded_string",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://{{localmarket}}/api/post_create_market?XDEBUG_SESSION=XDEBUG_ECLIPSE",
+					"protocol": "http",
+					"host": [
+						"{{localmarket}}"
+					],
+					"path": [
+						"api",
+						"post_create_market"
+					],
+					"query": [
+						{
+							"key": "XDEBUG_SESSION",
+							"value": "XDEBUG_ECLIPSE"
+						},
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

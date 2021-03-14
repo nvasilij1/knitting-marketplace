@@ -22,3 +22,6 @@ Route::get('get_category', 'App\Http\Controllers\Category\CategoryController@get
 Route::get('category_id/{id}', 'App\Http\Controllers\Category\CategoryController@getCategory_id');
 
 
+Route::post('post_create_market', 'App\Http\Controllers\Category\CategoryController@createMarket');
+
+
