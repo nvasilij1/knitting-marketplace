@@ -21,8 +21,8 @@ class CategoryController extends Controller
         $result = array();
         $status = 201;
         $data = $request->input();
-        $user = CategoryModel::where('vk_oid', '=', $data['vk_oid'])->first();
-        if ($user === null) {
+        $category_exist = CategoryModel::where('vk_oid', '=', $data['vk_oid'])->first();
+        if ($category_exist === null) {
             try {
                 $category = new CategoryModel;
                 $category->category_image = put_file_string(base64_decode($data["encoded_string"]));
@@ -34,12 +34,43 @@ class CategoryController extends Controller
                 $category->save();
                 $result[]['success'] = 1;
             } catch (\Exception $e) {
-                $set[]['error'] = 1;
+                $result[]['error'] = 1;
                 $status = 401;
             }
 
         } else {
-            $set[]['error'] = 1;
+            $result[]['error'] = 1;
+            $status = 402;
+        }
+        return response()->json($result, $status);
+    }
+
+
+    public function editMarket(Request $request){
+        $result = array();
+        $status = 200;
+        $data = $request->input();
+        $category = CategoryModel::where('vk_oid', '=', $data['vk_oid'])->first();
+        if ($category !== null) {
+            try {
+                $email_check = $category->email;
+                $email = $category->email = $data['email'];
+                $category->category_name = $data['category_name'];
+                $category->market_description = $data['market_description'];
+                $category->email_notification = $data['email_notification'];
+                $category->push_notification = $data['push_notification'];
+                if ($email_check != $email) {
+                    $category->email_notification = 0;
+                }
+                $category->save();
+                $result[]['send_ok'] = 1;
+            } catch (\Exception $e) {
+                $result[]['error'] = 1;
+                $status = 401;
+            }
+
+        } else {
+            $result[]['error'] = 1;
             $status = 402;
         }
         return response()->json($result, $status);

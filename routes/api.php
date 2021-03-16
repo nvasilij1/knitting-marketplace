@@ -23,5 +23,6 @@ Route::get('category_id/{id}', 'App\Http\Controllers\Category\CategoryController
 
 
 Route::post('post_create_market', 'App\Http\Controllers\Category\CategoryController@createMarket');
+Route::post('post_market_edit_form', 'App\Http\Controllers\Category\CategoryController@editMarket');
 
 
