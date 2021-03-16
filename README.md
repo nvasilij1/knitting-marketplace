@@ -6,6 +6,9 @@ knitting_marketplace.sql
 ### Api и административная панель торговой площадки ВсёСвязано
 
 Роуты для тестов
+
+{{localmarket}} - Имя вашего локального сервера
+
 1. Вернет товары по магазину 4
 ```
 Method Get
@@ -30,6 +33,22 @@ vk_oid - идентификатор vk страницы
 vk_name - имя 
 vk_surname - фамилия
 encoded_string - картинка магазина в base64 
+```
+
+4. Изменить данные магазина
+
+```
+Method POST
+http://{{localmarket}}/api/post_market_edit_form
+```
+С параметрами
+```
+vk_oid - идентификатор vk страницы
+email - email магазина 
+category_name - название магазина
+market_description - описание магазина
+email_notification - разрешить присылать уведомления по email
+push_notification - разрешить присылать уведомления на телефон
 ```
 
 Не забываем переименовать .env.example в .env и внести данные о соединении с базой данных
