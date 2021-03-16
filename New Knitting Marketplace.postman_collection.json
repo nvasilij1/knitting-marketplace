@@ -70,6 +70,71 @@
 							"type": "text"
 						},
 						{
+							"key": "email",
+							"value": "1@1.ru",
+							"type": "text"
+						},
+						{
+							"key": "category_name",
+							"value": "Магазин",
+							"type": "text"
+						},
+						{
+							"key": "market_description",
+							"value": "Описание магазина",
+							"type": "text"
+						},
+						{
+							"key": "email_notification",
+							"value": "1@1.ru",
+							"type": "text"
+						},
+						{
+							"key": "push_notification",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://{{localmarket}}/api/post_market_edit_form?XDEBUG_SESSION=XDEBUG_ECLIPSE",
+					"protocol": "http",
+					"host": [
+						"{{localmarket}}"
+					],
+					"path": [
+						"api",
+						"post_market_edit_form"
+					],
+					"query": [
+						{
+							"key": "XDEBUG_SESSION",
+							"value": "XDEBUG_ECLIPSE"
+						},
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update category",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "vk_oid",
+							"value": "3",
+							"type": "text"
+						},
+						{
 							"key": "vk_name",
 							"value": "Тест",
 							"type": "text"
