@@ -53,6 +53,14 @@ push_notification - разрешить присылать уведомления
 
 Не забываем переименовать .env.example в .env и внести данные о соединении с базой данных
 
+### Тесты
+Проверяем роут /api/get_category
+Нам известно, что в базе есть category_id = 1, его проверим в ответе JSON сервера
+```
+tests/Feature/CategoryTest.php
+```
+
+
 ### Для проверки url в Postman файл 
 
 New Knitting Marketplace.postman_collection.json
